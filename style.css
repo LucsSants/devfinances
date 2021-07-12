@@ -75,6 +75,7 @@ a:hover {
 .button.new {
   display: inline-block;
   margin-bottom: .8rem;
+  cursor: pointer;
 }
 
 .button.cancel {
@@ -90,6 +91,7 @@ a:hover {
   justify-content: center;
 
   opacity: 0.6;
+  cursor: pointer;
 }
 
 .button.cancel:hover {
@@ -200,6 +202,10 @@ table td {
   padding: 1rem 2rem;
 }
 
+table td img {
+  cursor: pointer;
+}
+
 td.description {
   color: var(--dark-blue);
 }
@@ -228,6 +234,8 @@ td.expense{
 
   opacity: 0;
   visibility: hidden;
+
+  z-index: 999;
 }
 
 .modal-overlay.active {
