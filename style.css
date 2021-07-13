@@ -20,6 +20,10 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
+ .logo {
+  margin-bottom: 2rem;
+} 
+
 .sr-only {
   position: absolute;
   width: 1px;
