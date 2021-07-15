@@ -9,6 +9,20 @@ const Modal = {
   }
 }
 
+const Notification = {
+  
+  runAlert() {
+     const Alert = document.querySelector(".alert")
+     Alert.classList.remove("hide")
+     Alert.classList.add("show")
+     setInterval(() => {
+      Alert.classList.remove("show")
+      Alert.classList.add("hide")
+    }, 2000)
+  }
+  
+}
+
 const Storage = {
   get() {
     return JSON.parse(localStorage.getItem("dev.finances:transactions")) || []
@@ -191,7 +205,10 @@ const Form = {
       Modal.close()
       
     } catch (error) {
-      alert(error.message)
+      const errorMessage = document.querySelector("span.msg-p")
+      errorMessage.innerHTML = error.message   
+      Notification.runAlert()
+      
     }
     
    // Form.formatData()

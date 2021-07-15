@@ -9,6 +9,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
 }
 
 html{
@@ -18,6 +19,7 @@ html{
 body {
   background: #f0f2f5;
   font-family: 'Poppins', sans-serif;
+  overflow: hidden  ;
 }
 
  .logo {
@@ -239,7 +241,7 @@ td.expense{
   opacity: 0;
   visibility: hidden;
 
-  z-index: 999;
+  z-index: 99;
 }
 
 .modal-overlay.active {
@@ -313,3 +315,90 @@ footer {
   }
 
 }
+
+
+/* Notification */
+
+.alert {
+  background: #ffadad;
+  padding: 1.5rem 2rem;
+  min-width: 32rem;
+  position: absolute;
+  right: 0px;
+  bottom: 1rem;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  border-left: 0.8rem solid var(--red);
+  visibility: hidden;
+  z-index: 999;
+
+  
+  }
+
+  
+  
+  .alert.show {
+      animation: show_slide 1s ease forwards;
+       visibility: visible; 
+  
+  }
+  
+  @keyframes show_slide {
+      0%{
+          transform: translateX(100%);
+      }
+      40%{
+          transform: translateX(-10%);
+      }
+      80%{
+          transform: translateX(0%);
+      }
+      100%{
+          transform: translateX(-5%);
+      }
+  
+  }
+  
+  
+  .alert.hide {
+      
+      animation: hide_slide 1s ease forwards;
+      visibility: visible;
+  }
+  
+  
+  @keyframes hide_slide {
+      0%{
+          transform: translateX(-5%);
+      }
+      40%{
+          transform: translateX(0%);
+      }
+      80%{
+          transform: translateX(-10%);
+      }
+      100%{
+          transform: translateX(100%);
+      }
+  
+  }
+  
+  
+  .alert .msg {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  
+  #g-check {
+     font-size: 28px;
+     color: var(--red);
+     
+  }
+  
+  
+  .alert .msg .msg-p {
+      margin-left: 5px;
+      color: var(--red);
+      font-weight: bold;
+  }
