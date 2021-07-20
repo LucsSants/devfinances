@@ -1,11 +1,15 @@
 const Modal = {
+  body: document.querySelector("body"),
   open() {
     document.querySelector(".modal-overlay")
     .classList.add('active')
+     Modal.body.style.overflow = "hidden" 
   },
   close() {
     document.querySelector(".modal-overlay")
     .classList.remove('active')
+    Modal.body.style.overflow = ""
+    
   }
 }
 
@@ -18,7 +22,8 @@ const Notification = {
      setInterval(() => {
       Alert.classList.remove("show")
       Alert.classList.add("hide")
-    }, 2000)
+    }, 3000)
+
   }
   
 }
