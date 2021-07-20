@@ -384,7 +384,7 @@ margin-right: .5rem;
 .alert {
   background: #ffadad;
   padding: 1rem 1.5rem;
-  min-width: 3rem;
+  min-width: 15rem;
   position: absolute;
   right: 0.7rem;
   bottom: 0.8rem;
@@ -441,7 +441,7 @@ margin-right: .5rem;
 .alert .msg .msg-p {
   margin-left: 0.6rem;
   color: var(--red);
-  font-weight: bold;
+  font-weight: normal;
 }
 
 
@@ -463,17 +463,9 @@ margin-right: .5rem;
 
   /* Notification Responsive*/
   .alert {
-    background: #ffadad;
-    padding: 1rem 1.5rem;
-    min-width: 15rem;
-    position: absolute;
+    
     right: 0px;
-    bottom: 0.8rem;
-    overflow: hidden;
-    border-radius: 0.5rem;
-    border-left: 0.8rem solid var(--red);
-    visibility: hidden;
-    z-index: 999;
+
   }
   
     .alert.show {
@@ -522,23 +514,6 @@ margin-right: .5rem;
   }
   
   
-    .alert .msg {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-  
-    #g-check {
-      font-size: 28px;
-      color: var(--red);
-    }
-  
-  
-    .alert .msg .msg-p {
-      margin-left: 0.6rem;
-      color: var(--red);
-      font-weight: bold;
-    }
   
   
 
