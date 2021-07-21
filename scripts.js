@@ -28,18 +28,92 @@ const Notification = {
   
 }
 
+const DarkMode = () => {
+  const html = document.querySelector("html")
+  const checkBox = document.querySelector("input[name=theme]")
+  const img = document.querySelector("#moon")
+
+  const getStyle = (element, style) => 
+    window
+    .getComputedStyle(element)
+    .getPropertyValue(style)
+
+    
+  const initialColors = {
+    smallColor: getStyle(html,"--small-color"),
+    white: getStyle(html,"--white"),
+    background: getStyle(html,"--background"),
+    header: getStyle(html,"--header"),
+    darkBlue: getStyle (html,"--dark-blue"),
+    green: getStyle(html,"--green"),
+    lightGreen: getStyle(html,"--light-green"),
+    red: getStyle(html,"--red")
+  }
+
+  const darkMode = {
+    smallColor: "#706f7cbb",
+    white: "white",
+    background: "#1f1f1f",
+    header: "#363636",
+    darkBlue: "#363f5f",
+    green: "#49aa26)",
+    lightGreen: "#3dd705",
+    red: "#e92929"
+  }
+
+  const transformKey = key => "--" + key.replace(/([A-Z])/, "-$1").toLowerCase()
+
+  const changeColors = (colors) => {
+    Object.keys(colors).map(key => html.style.setProperty(transformKey(key), colors[key]))
+  }
+
+  const isExistLocalStorage = (key) => 
+  localStorage.getItem(key) != null
+
+
+checkBox.addEventListener("change", ({target}) => {
+  if (target.checked) {
+    changeColors(darkMode) 
+    Storage.set('modo','darkMode')
+    img.innerHTML = "nights_stay"
+  } else {
+    changeColors(initialColors)
+    Storage.set('modo','initialColors')
+    img.innerHTML = "wb_sunny"
+  }
+})
+
+if(!isExistLocalStorage('modo'))
+  Storage.set('modo', 'initialColors')
+
+
+if (Storage.get('modo') === "initialColors") {
+  checkBox.removeAttribute('checked')
+  changeColors(initialColors);
+  img.innerHTML = "wb_sunny"
+} else {
+  checkBox.setAttribute('checked', "")
+  changeColors(darkMode);
+  img.innerHTML = "nights_stay"
+}
+
+
+
+}
+
 const Storage = {
-  get() {
-    return JSON.parse(localStorage.getItem("dev.finances:transactions")) || []
+  
+  get(key) {
+    return JSON.parse(localStorage.getItem(key)) || []
   },
 
-  set(transactions) {
-    localStorage.setItem("dev.finances:transactions", JSON.stringify(transactions))
+  set(key,value) {
+    localStorage.setItem(key, JSON.stringify(value))
   }
 }
 
 const Transactions = {
-  all: Storage.get(),
+  all: Storage.get("dev.finances:transactions"),
 
 
   add(transaction) {
@@ -225,8 +299,10 @@ const App = {
   init() {
     Transactions.all.forEach(DOM.addTransaction)
     DOM.updateBalance()
-
-    Storage.set(Transactions.all)
+    DarkMode()
+    Storage.set("dev.finances:transactions", Transactions.all)
+  
+    
     
   },
   reload() {
