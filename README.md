@@ -4,5 +4,6 @@
 Um app para organizar seus gastos e ganhos!
 
 
-<h2> Added </h2>
-<p> * Notificação </p>
+<h2> Extras </h2>
+<p> * Animação de notificação ao tentar enviar o formulário sem preencher </p>
+<p> * Dark Mode</p>
