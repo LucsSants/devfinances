@@ -19,7 +19,7 @@ const Notification = {
      const Alert = document.querySelector(".alert")
      Alert.classList.remove("hide")
      Alert.classList.add("show")
-     setInterval(() => {
+     setTimeout(() => {
       Alert.classList.remove("show")
       Alert.classList.add("hide")
     }, 3000)
