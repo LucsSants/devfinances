@@ -29,7 +29,7 @@ const Notification = {
 }
 
 const DarkMode = () => {
-  const html = document.querySelector("html")
+  const html =  document.querySelector("html")
   const checkBox = document.querySelector("input[name=theme]")
   const img = document.querySelector("#moon")
 
